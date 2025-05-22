@@ -24,6 +24,7 @@ app.get('/:name', async (req, res) => {
     try {
       result = await axios.get(url)
       await client.set(name, JSON.stringify(result.data))
+      await client.expire(name, 3600)
       return res.send(result.data)
     } catch (error) {
       return res.json('Please enter a valid location.')
