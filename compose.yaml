@@ -1,0 +1,9 @@
+services:
+  weather:
+    build: .
+    ports:
+      - '3000:4000'
+  redis:
+    image: redis
+    ports:
+      - '6378:6379'
